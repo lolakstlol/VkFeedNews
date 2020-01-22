@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="va2-1p-xVc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="gaa-rD-mTi">
+            <objects>
+                <viewController id="HpN-k4-U0R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gBL-ie-BN5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KJZ-Y0-8qV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="LMM-hA-kSc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJj-G1-sJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456" y="-52"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="7Py-VH-2e3">
+            <objects>
+                <viewController id="Vnz-Uf-P16" customClass="FeedViewController" customModule="VkHolod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="90D-uf-aYz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0uK-eg-zuZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0uK-eg-zuZ" firstAttribute="bottom" secondItem="QwN-Zl-vLP" secondAttribute="bottom" id="60z-mW-fHe"/>
+                            <constraint firstItem="0uK-eg-zuZ" firstAttribute="top" secondItem="QwN-Zl-vLP" secondAttribute="top" id="FcI-CA-fRL"/>
+                            <constraint firstItem="0uK-eg-zuZ" firstAttribute="leading" secondItem="QwN-Zl-vLP" secondAttribute="leading" id="nBC-Ie-AYz"/>
+                            <constraint firstItem="0uK-eg-zuZ" firstAttribute="trailing" secondItem="QwN-Zl-vLP" secondAttribute="trailing" id="sIy-UY-Kyi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QwN-Zl-vLP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="p1w-T1-DiQ"/>
+                    <connections>
+                        <outlet property="feedTableView" destination="0uK-eg-zuZ" id="I5v-9N-k3N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9l-47-4Oy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="-1037.6311844077961"/>
+        </scene>
+        <!--Feed Tab Bar Controller-->
+        <scene sceneID="frq-9a-I2Q">
+            <objects>
+                <tabBarController id="va2-1p-xVc" customClass="FeedTabBarController" customModule="VkHolod" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BdL-AP-7ag">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qck-IW-vNb" kind="relationship" relationship="viewControllers" id="8JB-vp-AAi"/>
+                        <segue destination="HpN-k4-U0R" kind="relationship" relationship="viewControllers" id="fqP-LK-Hte"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8X5-h5-zFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-497" y="-384"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="soW-d7-Tgf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qck-IW-vNb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="ic_vk_logo_nb" id="Dd7-TY-X5Z"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4L4-11-5J5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vnz-Uf-P16" kind="relationship" relationship="rootViewController" id="x4I-hz-5fG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tf4-Ak-YZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512.79999999999995" y="-1037.6311844077961"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_vk_logo_nb" width="40" height="23"/>
+    </resources>
+</document>

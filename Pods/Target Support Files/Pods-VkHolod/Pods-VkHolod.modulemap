@@ -1,0 +1,6 @@
+framework module Pods_VkHolod {
+  umbrella header "Pods-VkHolod-umbrella.h"
+
+  export *
+  module * { export * }
+}
