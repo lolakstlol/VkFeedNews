@@ -1,43 +1,43 @@
 import Foundation
 
 struct FeedResponseWrapped: Decodable {
-    let response : FeedResponse
+    let response: FeedResponse
 }
 
 struct FeedResponse: Decodable {
-    var items : [FeedItem]
-    var groups : [Group]
-    var profiles : [Profile]
+    var items: [FeedItem]
+    var groups: [Group]
+    var profiles: [Profile]
 }
 
 struct FeedItem: Decodable {
-    let sourceId : Int
+    let sourceId: Int
     let postId: Int?
-    let text : String?
-    let date : Double
-    let comments : CountableItem?
-    let likes : CountableItem?
-    let reposts : CountableItem?
-    let views : CountableItem?
+    let text: String?
+    let date: Double
+    let comments: CountableItem?
+    let likes: CountableItem?
+    let reposts: CountableItem?
+    let views: CountableItem?
     let attachments: [Attachment]?
 }
 
 struct Attachment: Decodable {
-    let photo : Photo?
+    let photo: Photo?
 }
 
 struct Photo: Decodable {
     
-    var height : Int {
+    var height: Int {
         return getSpecificSize().height
     }
-    var width : Int {
+    var width: Int {
         return getSpecificSize().width
     }
-    var url : String {
+    var url: String {
         return getSpecificSize().url
     }
-    let sizes : [PhotoSize]
+    let sizes: [PhotoSize]
     
     private func getSpecificSize() -> PhotoSize {
         if let specificSize = sizes.first(where: { $0.type == "x"}) {
@@ -50,7 +50,7 @@ struct Photo: Decodable {
     }
 }
 
-struct PhotoSize : Decodable {
+struct PhotoSize: Decodable {
     let type: String
     let url: String
     let width: Int

@@ -4,11 +4,11 @@ protocol Networking {
     func request(path: String, params: [String: String], completion: @escaping (Data?,Error?) -> Void)
 }
 
-final class NetworkingService : Networking{
+final class NetworkingService: Networking{
     
     var authService = AuthService.shared
     
-    func request(path: String, params: [String : String], completion: @escaping (Data?, Error?) -> Void) {
+    func request(path: String, params: [String: String], completion: @escaping (Data?, Error?) -> Void) {
         guard let token = authService.token else {return}
         var allParams = params
         allParams["access_token"] = token
@@ -36,5 +36,4 @@ final class NetworkingService : Networking{
         components.queryItems = params.map{ URLQueryItem(name: $0, value: $1) }
         return components.url!
     }
-    
 }

@@ -19,11 +19,10 @@ class WebImageView: UIImageView {
                 self.image = UIImage(data: data)
                 self.handleLoadedImage(data: data, response: response)
             }
-            
         }.resume()
     }
     
-    private func handleLoadedImage(data: Data, response : URLResponse) {
+    private func handleLoadedImage(data: Data, response: URLResponse) {
         guard let responseURl = response.url else { return }
         let cahcedResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cahcedResponse, for: URLRequest(url: responseURl))

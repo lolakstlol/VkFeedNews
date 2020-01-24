@@ -1,16 +1,16 @@
 import UIKit
 
 protocol FeedCellModel {
-    var iconImageUrl : String { get }
-    var name : String { get }
-    var date : String { get }
-    var text : String? { get }
-    var likes : String? { get }
-    var comments : String? { get }
-    var shares : String? { get }
-    var views : String? { get }
-    var contentPhoto : FeedCellContentPhotoModel? { get }
-    var sizes : FeedCellSizes { get }
+    var iconImageUrl: String { get }
+    var name: String { get }
+    var date: String { get }
+    var text: String? { get }
+    var likes: String? { get }
+    var comments: String? { get }
+    var shares: String? { get }
+    var views: String? { get }
+    var contentPhoto: FeedCellContentPhotoModel? { get }
+    var sizes: FeedCellSizes { get }
 }
 
 protocol FeedCellSizes {
@@ -23,7 +23,7 @@ protocol FeedCellSizes {
 protocol FeedCellContentPhotoModel {
     var photoURL: String? { get }
     var width: Int { get }
-    var height : Int { get }
+    var height: Int { get }
     
 }
 

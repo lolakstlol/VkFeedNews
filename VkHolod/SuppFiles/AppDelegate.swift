@@ -5,7 +5,7 @@ import VK_ios_sdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var authService : AuthService!
+    var authService: AuthService!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         authService = AuthService.shared
@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
         return true
     }
-    
 }
 
 extension AppDelegate : AuthServiceDelegate {
@@ -28,13 +27,12 @@ extension AppDelegate : AuthServiceDelegate {
     
     func authServiceSignIn() {
         print(#function)
-        let feedVC : FeedTabBarController = FeedTabBarController.loadFromStoryboard()
+        let feedVC: FeedTabBarController = FeedTabBarController.loadFromStoryboard()
         window?.rootViewController = feedVC
     }
     
     func authServiceDidSignInFail() {
         print(#function)
     }
-
 }
 

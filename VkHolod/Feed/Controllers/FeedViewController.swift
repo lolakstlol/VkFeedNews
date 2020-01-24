@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         setup()
     }
     
-    private func cellViewModel(from feedItem: FeedItem, profiles : [Profile], groups : [Group]) -> FeedViewModel.Cell {
+    private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Group]) -> FeedViewModel.Cell {
         let currentProfile = profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         let sizes = cellLayoutcalc.sizes(postText: feedItem.text, photo: fetchPhoto(feedItem: feedItem))
         //это бы в отдельную функцию, так шо не забудь
@@ -42,7 +42,7 @@ class FeedViewController: UIViewController {
                                        sizes: sizes)
     }
     
-    private func fetchPhoto(feedItem : FeedItem) -> FeedViewModel.FeedCellPhotoAttachment? {
+    private func fetchPhoto(feedItem: FeedItem) -> FeedViewModel.FeedCellPhotoAttachment? {
         guard let photos = feedItem.attachments?.compactMap({ (attachment) in
             attachment.photo
         }), let firstPhoto = photos.first else {
@@ -51,7 +51,6 @@ class FeedViewController: UIViewController {
         return FeedViewModel.FeedCellPhotoAttachment.init(photoURL: firstPhoto.url,
                                                           width: firstPhoto.width,
                                                           height: firstPhoto.height)
-        
     }
     
     private func profile(for sourseId: Int, profiles: [Profile], groups: [Group]) -> ProfileRepresentable {
@@ -62,7 +61,7 @@ class FeedViewController: UIViewController {
         }
     }
     
-    private func updateTableView(model : FeedResponse) {
+    private func updateTableView(model: FeedResponse) {
         feedViewData = model.items.map { (feedItem) in
             cellViewModel(from: feedItem, profiles: model.profiles, groups: model.groups)
         }
@@ -78,7 +77,6 @@ class FeedViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         cellLayoutcalc = FeedCellLayoutCalc(screenWidth: FeedViewControllerConstants.screenWidth)
     }
-    
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -98,6 +96,5 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         let currentCell = feedViewData[indexPath.row]
         return currentCell.sizes.totalHeight 
     }
-    
 }
 

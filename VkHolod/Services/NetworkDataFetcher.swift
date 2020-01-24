@@ -13,14 +13,12 @@ struct NetworkDataFetcher: DataFetcher {
     }
     
     func getFeed(response: @escaping (FeedResponse?) -> Void) {
-        
         let params = ["filters": "post, photo"]
         networking.request(path: API.newsFeed, params: params) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
                 response(nil)
             }
-            
             let decoded = self.decodeJSON(type: FeedResponseWrapped.self, from: data)
             response(decoded?.response)
         }

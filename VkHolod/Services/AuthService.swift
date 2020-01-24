@@ -12,10 +12,10 @@ final class AuthService: NSObject{
     // MARK: Properties
     
     private let appId = "7287443"
-    private let vkSdk : VKSdk
-    static var shared : AuthService = AuthService()
+    private let vkSdk: VKSdk
+    static var shared: AuthService = AuthService()
     weak var delegate: AuthServiceDelegate?
-    var token : String?{
+    var token: String?{
         return VKSdk.accessToken()?.accessToken!
     }
     
@@ -58,7 +58,6 @@ extension AuthService: VKSdkDelegate,VKSdkUIDelegate {
         if result.token != nil {
         delegate?.authServiceSignIn()
         }
-        
     }
     
     func vkSdkUserAuthorizationFailed() {

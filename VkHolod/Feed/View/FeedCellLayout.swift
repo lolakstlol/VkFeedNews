@@ -10,17 +10,16 @@ struct Sizes: FeedCellSizes {
     var totalHeight: CGFloat
     var postLabelFrame: CGRect
     var photoFrame: CGRect
-    
 }
 
-final class FeedCellLayoutCalc : FeedCellLayoutCalcProtocol {
+final class FeedCellLayoutCalc: FeedCellLayoutCalcProtocol {
     
-    struct CellLayoutCosntants {
+    private struct CellLayoutCosntants {
         static let cardInserts = UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 8)
-        static let topViewHeight : CGFloat = 45.0
+        static let topViewHeight: CGFloat = 45.0
         static let labelInserts = UIEdgeInsets(top: CellLayoutCosntants.topViewHeight + 10 + 3, left: 8, bottom: 8, right: 8)
         static let labelFont = UIFont.systemFont(ofSize: 15)
-        static let bottomViewHeight : CGFloat = 50
+        static let bottomViewHeight: CGFloat = 50
     }
     
     private let screenWidth: CGFloat
@@ -32,7 +31,7 @@ final class FeedCellLayoutCalc : FeedCellLayoutCalcProtocol {
     func sizes(postText: String?, photo: FeedCellContentPhotoModel?) -> FeedCellSizes {
         let cardViewWidth = screenWidth - CellLayoutCosntants.cardInserts.left - CellLayoutCosntants.cardInserts.right
         
-        //MARK: LabelFrame
+        //LabelFrame
         var postLabelFrame = CGRect(origin: CGPoint(x: CellLayoutCosntants.labelInserts.left, y: CellLayoutCosntants.labelInserts.top), size: CGSize.zero)
         
         if let text = postText, !text.isEmpty {
@@ -41,19 +40,19 @@ final class FeedCellLayoutCalc : FeedCellLayoutCalcProtocol {
             postLabelFrame.size = CGSize(width: labelWidth, height: height)
         }
         
-        //MARK: PhotoFrame
-        let topInsert = postLabelFrame.size == CGSize.zero ? CellLayoutCosntants.labelInserts.top : postLabelFrame.maxY + CellLayoutCosntants.labelInserts.bottom
+        //PhotoFrame
+        let topInsert = postLabelFrame.size == CGSize.zero ? CellLayoutCosntants.labelInserts.top: postLabelFrame.maxY + CellLayoutCosntants.labelInserts.bottom
         var photoFrame = CGRect(origin: CGPoint(x: 0, y: topInsert), size: CGSize.zero)
         if let photo = photo {
-            let ratio : CGFloat = CGFloat(photo.height) / CGFloat(photo.width)
+            let ratio: CGFloat = CGFloat(photo.height) / CGFloat(photo.width)
             photoFrame.size = CGSize(width: cardViewWidth, height: cardViewWidth * ratio)
         }
         
-        //MARK: BottomViewFrame
+        //BottomViewFrame
         let bottomViewTop = max(postLabelFrame.maxY,photoFrame.maxY)
         let bottomViewFrame = CGRect(origin: CGPoint(x: 0, y: bottomViewTop), size: CGSize(width: cardViewWidth, height: CellLayoutCosntants.bottomViewHeight ))
         
-        //MARK: TotalHeight
+        //TotalHeight
         let total = bottomViewFrame.maxY + CellLayoutCosntants.cardInserts.bottom + 3
         print(total)
         return Sizes(bottomView: bottomViewFrame,
